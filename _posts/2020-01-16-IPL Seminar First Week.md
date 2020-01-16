@@ -1,7 +1,7 @@
----
+﻿---
 title : "IPL Lab First Semiar"
 author : "금주"
-categories : - Seminar
+#categories : - Seminar
 date: "2020-01-16"
 ---
 

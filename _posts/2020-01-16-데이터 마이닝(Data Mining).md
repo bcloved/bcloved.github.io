@@ -1,7 +1,7 @@
----
+﻿---
 title : "데이터 마이닝(Data Mining)"
 author : "금주"
-categories : - study
+#categories : - study
 date: "2020-01-16"
 ---
 
