@@ -43,7 +43,7 @@ Ex ) 책 ,잡지, 문서, 영상정보, 음성정보 ,SNS
 
 ## 군집분석
 -----
-군집 분석은<b><span style="color:rgb(241, 102, 85)"> 비지도학습 (Unsupervised learning) </b>분석 기법 중 하나
+군집 분석은<b><span style="color:rgb(241, 102, 85)"> 비지도학습 (Unsupervised learning) </span></b>분석 기법 중 하나
 #### K-means 군집 분석
 유사한 대상끼리 그룹핑(Grouping) 하기 위해서는 <b><span style="color:rgb(241, 102, 85)">대상간의 유사도, 거리를 측정해야할 필요</span></b>가 있는데, 이를 하는 방법 중 하나가 K-means 군집분석
 #### K-means 군집 분석의 알고리즘
