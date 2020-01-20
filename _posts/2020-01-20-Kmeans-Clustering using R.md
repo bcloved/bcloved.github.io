@@ -111,7 +111,7 @@ withinss : 그룹 내 거리의 분산을 합한 것
 
 
 
-####각 데이터가 어떤 군집으로 분류되었는지 'cluster' 로 확인
+#### 각 데이터가 어떤 군집으로 분류되었는지 'cluster' 로 확인
 > kmeans.iris$cluster
 
 
@@ -119,7 +119,7 @@ withinss : 그룹 내 거리의 분산을 합한 것
 > table(iris[,5],kmeans.iris$cluster) : 테이블로 비교
 
 
-####각 군집의 중심점 확인
+#### 각 군집의 중심점 확인
 
 > kmeans.iris$center : 각 군집의 중심점 확인
 
