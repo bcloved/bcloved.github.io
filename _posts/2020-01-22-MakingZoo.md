@@ -35,20 +35,20 @@ Go -> animal_is -> Cat -> carnivore -> mammal -> feature -> ask -> read -> anima
 
 <b><span style="color:rgb(159, 125, 255)"> (2) </span></b>
 
-> go :- 
-write('GeumJu : Mom ! i want to see Animal'),
-nl,
-write('Mom : what is Animal'),
-nl,
-write('GeumJu : Umm, I do not remember that'),
-nl,
-animal_is(Animal,Locate),
-write('I think that is '),
-write(Animal),
-write(' ! that is '),
+> go :- <br>
+write('GeumJu : Mom ! i want to see Animal'),<br>
+nl,<br>
+write('Mom : what is Animal'),<br>
+nl,<br>
+write('GeumJu : Umm, I do not remember that'),<br>
+nl,<br>
+animal_is(Animal,Locate),<br>
+write('I think that is '),<br>
+write(Animal),<br>
+write(' ! that is '),<br>
 write(Locate).
 
-> undo :- retract(yes(_)),fail. 
+> undo :- retract(yes(_)),fail. <br>
 undo :- retract(no(_)),fail. 
 
 > undo.
@@ -96,13 +96,13 @@ ask(Q) :-<br>
 
  {% raw %} <img src="https://bcloved.github.io/assets/images/20200122ZOO/2.PNG" alt=""> {% endraw %}
 	
-> ask(Q) :-
-	write('Mom : It '), write(Q),  write('? '),
-	read(R),
-	( (R == yes ; R == y) 
-         -> assert(yes(Q)) ;
-	(R == no ; R == n)
-         -> assert(no(Q)), fail). 
+> ask(Q) :-<br>
+	write('Mom : It '), write(Q),  write('? '),<br>
+	read(R),<br>
+	( (R == yes ; R == y) <br>
+         -> assert(yes(Q)) ;<br>
+	(R == no ; R == n)<br>
+         -> assert(no(Q)), fail). <br>
 
 ask 에 대한 규칙들을 정의한 부분입니다. 위에서 ask에 s 를 매개변수로 전달 했고 변수 Q로 전달 받았습니다. <b><span style="color:rgb(159, 125, 255)"> Read() 는 사용자로부터 값을 받는 함수로 만약 전달받은 값(R)이 yes 이거나 y 이면 yes 데이터베이스에 해당 질문 Q를 넣고 R 값이 no 거나 n 인 경우에는 no 데이터베이스에 Q 값을 추가한다(assert)는 규칙들을 정의</span></b> 합니다. 
 
@@ -129,54 +129,54 @@ animal_is 에 대한 규칙들을 정의한 부분입니다. Prolog 에서 <b> !
 
 <b><span style="color:rgb(159, 125, 255)">  (5) </span></b>
 
-> cat :- carnivore,mammal,
-	feature(is_Companion_animals),
-	feature(hates_water),
+> cat :- carnivore,mammal,<br>
+	feature(is_Companion_animals),<br>
+	feature(hates_water),<br>
 	feature(is_Feline).
 
-> elephant :- herbivores, mammal,
-	feature(is_big),
-	feature(has_grey_skin_color),
+> elephant :- herbivores, mammal,<br>
+	feature(is_big),<br>
+	feature(has_grey_skin_color),<br>
 	feature(has_long_nose).
 
-> cheetah :- carnivore,mammal,
-	feature(is_Feline),
-	feature(is_so_fast),
+> cheetah :- carnivore,mammal,<br>
+	feature(is_Feline),<br>
+	feature(is_so_fast),<br>
 	feature(has_dark_color_spot).
 
 	
-> lion :- carnivore, mammal,
-	feature(has_sharp_Teeth),
-	feature(is_called_the_king_of_the_Jungle),
+> lion :- carnivore, mammal,<br>
+	feature(has_sharp_Teeth),<br>
+	feature(is_called_the_king_of_the_Jungle),<br>
 	feature(has_golden_fur).
 
 	
-> tiger :-carnivore, mammal,
-	feature(has_sharp_Teeth),
-	feature(is_Feline),
+> tiger :-carnivore, mammal,<br>
+	feature(has_sharp_Teeth),<br>
+	feature(is_Feline),<br>
 	feature(has_golden_fur).
 
 
 
-> dog :- carnivore,mammal,
-	feature(is_Used_for_hunting),
-	feature(is_Companion_animals),
+> dog :- carnivore,mammal,<br>
+	feature(is_Used_for_hunting),<br>
+	feature(is_Companion_animals),<br>
 	feature(has_a_good_sense_of_smell).
 	
 	
-> penguin :-carnivore,birds,
-	feature(is_not_fly),
+> penguin :-carnivore,birds,<br>
+	feature(is_not_fly),<br>
 	feature(is_live_in_cold_local).
 
 
-> parrot :- herbivores,birds,
-	feature(can_fly),
-	feature(can_speak),
+> parrot :- herbivores,birds,<br>
+	feature(can_fly),<br>
+	feature(can_speak),<br>
 	feature(is_Companion_animals).
 
-> dolphin :- carnivore,mammal,
-	feature(is_swimming_well),
-	feature(has_high_IQ),
+> dolphin :- carnivore,mammal,<br>
+	feature(is_swimming_well),<br>
+	feature(has_high_IQ),<br>
 	feature(makes_an_ultrasonic_sound).
 
 
@@ -185,20 +185,20 @@ animal_is 에 대한 규칙들을 정의한 부분입니다. Prolog 에서 <b> !
 > herbivores :- feature(eats_leaf).
 
 
-> birds :-	feature(lays_eggs),
-	  feature(has_wings),
+> birds :-	feature(lays_eggs),<br>
+	  feature(has_wings),<br>
 	  feature(has_beak).
 
 
-> mammal :- feature(gives_milk), feature(is_giving_birth),
+> mammal :- feature(gives_milk), feature(is_giving_birth),<br>
 	feature(has_hair).
 
 각 동물들에 대한 사실들을 정의해놓은 문장입니다.
 만약 
 
-> cat :- carnivore,mammal,
-	feature(is_Companion_animals),
-	feature(hates_water),
+> cat :- carnivore,mammal,<br>
+	feature(is_Companion_animals),<br>
+	feature(hates_water),<br>
 	feature(is_Feline).
 
 이 실행됐다면 cat에 대한 규칙 <b>carnivore , mammal 이며 Companion animals (반려동물)이며 hates water(물을 싫어하고) Feline(고양이 과) 이라는 규칙</b>을 가지고 있습니다. 
