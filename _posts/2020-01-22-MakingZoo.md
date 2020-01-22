@@ -74,15 +74,15 @@ undo :- retract(no(_)),fail.
 
 <b><span style="color:rgb(159, 125, 255)"> (3) </span></b> 
 
-> :- dynamic yes/1,no/1.
-feature(S) :- ( yes(S) -> true ;(no(S) -> fail ; ask(S))).
-ask(Q) :-
-	write('Mom : It '),write(Q),write('? '),
-	read(R),
-	( (R == yes ; R == y) 
-         -> assert(yes(Q)) ;
-	(R == no ; R == n)
-         -> assert(no(Q)), fail).
+> :- dynamic yes/1,no/1.<br>
+feature(S) :- ( yes(S) -> true ;(no(S) -> fail ; ask(S))).<br>
+ask(Q) :-<br>
+	<t>write('Mom : It '),write(Q),write('? '),<br>
+	<t>read(R),<br>
+	<t>( (R == yes ; R == y) <br>
+         <t>-> assert(yes(Q)) ;<br>
+	<t>(R == no ; R == n)<br>
+         <t>-> assert(no(Q)), fail).
 
 <b>:- dynamic yes/1,no/1. 은 동적인 데이터베이스를 선언</b>해 주는 것 입니다. 프롤로그에서 <b>:- 는 only if 라는 의미의 논리식</b> 입니다. 즉 사실에 대한 규칙을 표현 할 때 <b><span style="color:rgb(159, 125, 255)"> “ :- “ 기호를 사용</span></b> 합니다. 
 이 데이터 베이스는 전역으로 쓰여야 하기 때문에 전역 변수로 선언을 해주고, 동적인 데이터베이스 yes 와 no를 선언하는 문장입니다. 
