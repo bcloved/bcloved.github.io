@@ -18,6 +18,7 @@ date: "2020-01-22"
 
 ## 소스 코드
 
+<script src="https://gist.github.com/bcloved/f7c14d5ea3897d05b3e87bc43eb5c6f8.js"></script>
 
 ## 코드 설명
 
