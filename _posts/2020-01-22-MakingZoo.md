@@ -4,10 +4,8 @@ author : "금주"
 #categories : - AI
 date: "2020-01-22"
 ---
-----
-star: true
+
 ## 규칙 기반 전문가 시스템
-----
 
 
 규칙 기반 전문가 시스템에서는 지식 표현 모델 중 <b>생성 규칙을 사용</b>합니다.
@@ -19,22 +17,17 @@ star: true
 
 -------
 
-----
-star: true
-
 ## 소스 코드
-----
+
 <script src="https://gist.github.com/bcloved/f7c14d5ea3897d05b3e87bc43eb5c6f8.js"></script>
 
 
 -------
 
-----
-star: true
+
 
 ## 코드 설명
 
-----
 
 <b><span style="color:rgb(159, 125, 255)"> (1)</span></b>
 먼저 메소드 실행 순서에 대해 설명 하겠습니다.
@@ -129,7 +122,7 @@ animal_is(parrot,left_of_the_fourth_block) :- parrot, !.
 animal_is(penguin,center_of_Fourth_block) :- penguin, !.
 animal_is(dolphin,right_of_Forth_block) :- dolphin, !.
 
-animal_is 에 대한 규칙들을 정의한 부분입니다. Prolog 에서 <b> ! 의 의미는 Cut 이라는 의미</b> 입니다. <span style="background-color:"color:rgb(159, 125, 255)"> Cut. Discard all choice points created since entering the predicate in which the cut appears. In other words, commit to the clause in which the cut appears and discard choice points that have been created by goals to the left of the cut in the current clause </span> 출처 : https://stackoverflow.com/questions/22421995/what-does-do-in-prolog 
+animal_is 에 대한 규칙들을 정의한 부분입니다. Prolog 에서 <b> ! 의 의미는 Cut 이라는 의미</b> 입니다. <span style="background-color:rgb(159, 125, 255)"> Cut. Discard all choice points created since entering the predicate in which the cut appears. In other words, commit to the clause in which the cut appears and discard choice points that have been created by goals to the left of the cut in the current clause </span> 출처 : https://stackoverflow.com/questions/22421995/what-does-do-in-prolog 
 <b>cut이 나타나는 술어를 입력 한 이후의 작성된 모든 선택지는 버리는 것 </b>입니다. 예를 들자면 animal_is(cat,left_side_of_first_block) :- cat, !. 문장에서는 cat 이라는 사실만 실행합니다. 만약 cat 이 답한 규칙들이 다 맞다면 animal_is 규칙에 대한 매개변수로 cat과, left_side_of_first_block 이 들어갑니다. 이들은 변수가 아니기 때문에 소문자로 넣어줘야 합니다.
 
 
@@ -212,13 +205,11 @@ animal_is 에 대한 규칙들을 정의한 부분입니다. Prolog 에서 <b> !
 
 또한 carnivore 하고 mammal 의 규칙이 있기 때문에 <u>carnivore 이라는 사실에 대한 규칙들이 실행</u> 됩니다. 이 규칙에 대한 사실에 대해 예를 들면 carnivore하면 “eats_meat” (고기를 먹는다.) 이다. 라는 의미 입니다.
 
+--------------------
 
-
-----
-star: true
 
 ## 결과
-----
+
 
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200122ZOO/3.PNG" alt=""> {% endraw %}
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200122ZOO/4.PNG" alt=""> {% endraw %}
