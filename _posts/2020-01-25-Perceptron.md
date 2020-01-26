@@ -51,7 +51,7 @@ XOR게이트는 NAND 와 OR 을 AND 시키면 나오게 된다.
 ## 소스 코드
 
 
-
+<script src="https://gist.github.com/bcloved/ed87ff3f5cd704b7292bcfe4face6255.js"></script>
 
 -------
 
