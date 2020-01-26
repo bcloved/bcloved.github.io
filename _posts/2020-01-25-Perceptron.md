@@ -43,7 +43,7 @@ XOR게이트는 NAND 와 OR 을 AND 시키면 나오게 된다.
 
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200125Perceptron/7.PNG" alt=""> {% endraw %}
 
-하지만 이번 과제에서는 단층 퍼셉트론만 다루게 된다.
+하지만 이번 게시물에서는 단층 퍼셉트론만 다룰 예정이다.
 
 
 -------
@@ -203,3 +203,40 @@ Predict 함수는 테스트 부분이다. 실제로 학습이 종료되었을 �
 
 ## 결과
 
+위의 코드는 AND 연산을 진행한 부분이고 , 이에 대한 결과는 아래와 같다.
+
+{% raw %} <img src="https://bcloved.github.io/assets/images/20200125Perceptron/8.PNG" alt=""> {% endraw %}
+
+
+OR 연산
+
+def __init__(self):
+        
+        global x,d,b,w,w0
+        
+        x = [[0,0],[0,1],[1,0],[1,1]]
+        d= [0,1,1,1] #원하는 출력
+        b= -0.1
+        w = [0,0]
+        w0 = 1.0
+        super().__init__()
+
+
+{% raw %} <img src="https://bcloved.github.io/assets/images/20200125Perceptron/9.PNG" alt=""> {% endraw %}
+
+XOR 연산
+
+
+def __init__(self):
+        
+        global x,d,b,w,w0
+        
+        x = [[0,0],[0,1],[1,0],[1,1]]
+        d= [0,1,1,0] #원하는 출력
+        b= -0.1
+        w = [0,0]
+        w0 = 1.0
+        super().__init__()
+
+
+{% raw %} <img src="https://bcloved.github.io/assets/images/20200125Perceptron/10.PNG" alt=""> {% endraw %}
