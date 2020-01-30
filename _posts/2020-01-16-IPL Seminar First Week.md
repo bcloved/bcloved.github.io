@@ -10,25 +10,21 @@ date: "2020-01-16"
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200116Seminar1/3.JPG" alt=""> {% endraw %}
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200116Seminar1/4.JPG" alt=""> {% endraw %}
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200116Seminar1/5.JPG" alt=""> {% endraw %}
-
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200116Seminar1/6.JPG" alt=""> {% endraw %}
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200116Seminar1/7.JPG" alt=""> {% endraw %}
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200116Seminar1/8.JPG" alt=""> {% endraw %}
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200116Seminar1/9.JPG" alt=""> {% endraw %}
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200116Seminar1/10.JPG" alt=""> {% endraw %}
-
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200116Seminar1/11.JPG" alt=""> {% endraw %}
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200116Seminar1/12.JPG" alt=""> {% endraw %}
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200116Seminar1/13.JPG" alt=""> {% endraw %}
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200116Seminar1/14.JPG" alt=""> {% endraw %}
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200116Seminar1/15.JPG" alt=""> {% endraw %}
-
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200116Seminar1/16.JPG" alt=""> {% endraw %}
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200116Seminar1/17.JPG" alt=""> {% endraw %}
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200116Seminar1/18.JPG" alt=""> {% endraw %}
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200116Seminar1/19.JPG" alt=""> {% endraw %}
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200116Seminar1/20.JPG" alt=""> {% endraw %}
-
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200116Seminar1/21.JPG" alt=""> {% endraw %}
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200116Seminar1/22.JPG" alt=""> {% endraw %}
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200116Seminar1/23.JPG" alt=""> {% endraw %}
