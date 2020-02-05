@@ -225,6 +225,18 @@ y_kmeans 가 0으로 군집화 된 데이터 값들(x)을 마커 크기 100 빨�
 <i>해당 군집들의 중심을 보기 위해서 kmeans.cluster_centers_ 를 사용하면 중심 값들이 나온다.</i>
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200205clusteringMart/15.PNG" alt=""> {% endraw %}
 
+> plt.legend()
+
+legend() 가 뭔지 정확히 알고싶은 사람들은 아래 글과 블로그 참고하십슈 ㅎㅎ
+
+    matplotlib로 그림을 열심히 그리고 나서, “이 색깔의 모양 저것은 무엇이고…” 하는 식으로 설명을 덧붙이면 매우 피곤해집니다. 이런 짓을 좀 덜 하려면 legend만 잘 넣어도 됩니다. plt.legend()만 넣어주면 되긴 합니다. 물론, 이렇게 하려면 figure에 새로운 그림을 넣어줄 때마다(scatter, or plot, …) label을 함께 넘겨줍니다. 잘 넣어주면, 나중에 plt.legend()를 해주면 알아서 잘 출력해줘요.
+    [출처< https://frhyme.github.io/python-lib/matplotlib_legend/> ]
+
+사실 이거 읽을 필요는 없구 그냥 아래 사진의
+{% raw %} <img src="https://bcloved.github.io/assets/images/20200205clusteringMart/16.PNG" alt=""> {% endraw %}
+
+빨간동그라미 같은 저런걸 legend() 함수가 해줌 ! ! ! ! !
+
 
 참고자료
 -----
