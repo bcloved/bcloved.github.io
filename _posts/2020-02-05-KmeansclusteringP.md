@@ -160,8 +160,12 @@ scikit-learn 의 cluster 서브패키지는 K-MEANS Clustering 를 위한 KMeans
 
 군집의 개수를 비교하기 위해 군집의 갯수가 1개 일때부터 11일 때까지 반복문을 돌려준다.
 초기화 방법으로는 k-means ++ 를 사용한다. (k-means++ 에 대해 알고 싶은 분들은 <https://bcloved.github.io/Project/>  게시물 참고해주세용)
+
 그리고 fit 함수는 학습을 진행하는 함수다. kmeans 알고리즘으로 x에 저장된 데이터를 학습을 진행하는 것이다.
-Inertia value는 군집화가된 후에, 각 중심점에서 군집의 데이타간의 거리를 합산한것이으로 군집의 응집도를 나타내는 값이다, 이 값이 작을 수록 응집도가 높게 군집화가 잘되었다고 평가할 수 있다. 이 inertia value는 KMeans 모델이 학습된 후에, model.inertia_ 값으로 뽑아 볼 수 있다. 한마디로 이 값들을 리스트를 담는 변수인 wcss 에 할당한다. (다시 한 번 말하지만 무엇이 가장 최적의 k 인지 알기 위해서 하는 것이다.)
+
+Inertia value는 군집화가된 후에, 각 중심점에서 군집의 데이타간의 거리를 합산한것이으로 군집의 응집도를 나타내는 값이다.
+
+ 이 값이 작을 수록 응집도가 높게 군집화가 잘되었다고 평가할 수 있다. 이 inertia value는 KMeans 모델이 학습된 후에, model.inertia_ 값으로 뽑아 볼 수 있다. 한마디로 이 값들을 리스트를 담는 변수인 wcss 에 할당한다. (다시 한 번 말하지만 무엇이 가장 최적의 k 인지 알기 위해서 하는 것이다.)
 
 > <b><span style="color:rgb(159, 125, 255)">  plt.plot(range(1,11),wcss) <br>
 plt.xlabel('Number of clusters') <br>
@@ -181,6 +185,7 @@ inertia 값이 저장된 변수인 wcss 의 데이터들을 그래프로 나타�
 
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200205clusteringMart/11.PNG" alt=""> {% endraw %}
 
+
 ><b><span style="color:rgb(159, 125, 255)">  kmeans = KMeans(n_clusters=5,init='k-means++',random_state=42) <br>
 y_kmeans = kmeans.fit_predict(x) </span></b>
 
@@ -191,6 +196,7 @@ n_clusters (군집의 갯수) 를 5로 설정하고, 초기화 방법으로 k-me
 ## 5. 시각화
 
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200205clusteringMart/12.PNG" alt=""> {% endraw %}
+
 
 산포그래프(scatter plot)는 마커사이즈와 컬러를 이용하여 만든 플롯이다. 더 알고 싶은 사람들은 아래 내용을 참고.
 
@@ -210,6 +216,7 @@ c
  - s와 마찬가지로 x,y 같은 요소수를 가지는 이터레이블한 자료형을 입력할 경우 각 마커마다 다른 색상을 설정할 수 있다.
 
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200205clusteringMart/13.PNG" alt=""> {% endraw %}
+
 
 scatter() 의 함수의 전체 매개변수를 나타낸다.
 하지만 여기서는 위에서 설명한 x,y,s,c, 매개변수만  사용했다.
