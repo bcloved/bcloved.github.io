@@ -5,7 +5,7 @@ author : "금주"
 date: "2020-02-05"
 ---
 
-<https://bcloved.github.io/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%88%98%EC%A7%91/> 에서 데이터를 어디서 모으는지에 대한 걸 보여줬다.
+데이터수집 (<https://bcloved.github.io/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%88%98%EC%A7%91/>) 에서 데이터를 어디서 모으는지에 대한 걸 보여줬다.
 내가 본격적으로 데이터를 얻을 수 있었던 사이트는 kaggle <https://www.kaggle.com> 이라는 사이트였고, 거기서 사용자의 연평균 소득과 나이, 성별에 대한 데이터를 얻을 수 있었다.
 이 데이터를 k-means algorithm 을 통해 군집화 시켜보려고 한다.
 
