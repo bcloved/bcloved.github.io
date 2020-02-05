@@ -30,13 +30,13 @@ ds(dataset) 라는 변수에 pandas 를 이용하여 csv 파일을 데이터프�
 
 > x = ds.iloc[:,[3,4]].values
 
-이 문장의 의미를 먼저 말하자면, 3,4 번째 인덱스(실제로는 4,5 번째 열) 열 데이터의 values 들을 x 에 저장하라는 의미입니다.
+이 문장의 의미를 먼저 말하자면, 3,4 번째 인덱스(실제로는 4,5 번째 열) 열 데이터의 values 들을 x 에 저장하라는 의미다.
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200205clusteringMart/3.PNG" alt=""> {% endraw %}
 
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200205clusteringMart/4.PNG" alt=""> {% endraw %}
 [실제 데이터파일]
 
-print를 찍어보니 데이터셋의 3,4번 째 열 데이터들이 저장된 걸 볼 수 있습니다.
+print를 찍어보니 데이터셋의 3,4번 째 열 데이터들이 저장된 걸 볼 수 있었다.
 
 
 
