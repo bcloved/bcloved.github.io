@@ -20,15 +20,16 @@ date: "2020-02-05"
 
 library import 해오는 부분으로 여기서 내가 생소했던 라이브러리만 설명하겠다.
 
-matplotlib.pyplot : 이건 kmeans 클러스터링 예제를 풀었던 곳에서도 사용했던 라이브러리인데 료를 차트(chart)나 플롯(plot)으로 시각화(visulaization)하는 패키지이다.
-pandas: numpy행렬과 같이 쉼표를 사용한 (행 인덱스, 열 인덱스) 형식의 2차원 인덱싱을 지원하기 위해 다음과 같은 특별한 인덱서(indexer) 속성도 제공
+- matplotlib.pyplot : 이건 kmeans 클러스터링 예제를 풀었던 곳에서도 사용했던 라이브러리인데 료를 차트(chart)나 플롯(plot)으로 시각화(visulaization)하는 패키지이다.
+
+- pandas: numpy행렬과 같이 쉼표를 사용한 (행 인덱스, 열 인덱스) 형식의 2차원 인덱싱을 지원하기 위해 다음과 같은 특별한 인덱서(indexer) 속성도 제공
 
 ## 2. dataset read
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200205clusteringMart/1.PNG" alt=""> {% endraw %}
 
 ds(dataset) 라는 변수에 pandas 를 이용하여 csv 파일을 데이터프레임으로 변환한다. 이때 파일 경로를 적어주면 되는데,<b> 파일 경로는 \ 이거 아니다 / 이걸로 해줘야함.</b> 귀찮음이 커서 그냥 경로 복붙했는데 오류나서 진짜 당황했다. 복붙하면 경로 '\ ' 이걸로 나옴
 
-> x = ds.iloc[:,[3,4]].values
+><b><span style="color:rgb(159, 125, 255)">  x = ds.iloc[:,[3,4]].values </span></b>
 
 이 문장의 의미를 먼저 말하자면, 3,4 번째 인덱스(실제로는 4,5 번째 열) 열 데이터의 values 들을 x 에 저장하라는 의미다.
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200205clusteringMart/3.PNG" alt=""> {% endraw %}
@@ -51,6 +52,7 @@ iloc | 행 번호를 기준으로 행 데이터 읽기|순서를 나타내는 �
 
 여기서 사용한 함수는 iloc. 즉, 행 번호를 기준으로 데이터를 읽는 것이다.
 
+
 둘의 차이가 뭘까 ? <b>인덱스는 사용자가 설정하기 나름이다. 한마디로 문자열로 설정할 수 도 있고, 숫자도 중구난방으로 설정할 수 있는데 인덱스 번호가 작은 것부터 읽는 것을 의미한다.</b>
 
 그에 비해 <b>행 번호는 순서대로 1,2,3,4 읽는 것을 의미한다. 저기서 2번째 행이 삭제되더라도 행번호는 1,2,3 이 된다.</b>
@@ -61,8 +63,8 @@ iloc | 행 번호를 기준으로 행 데이터 읽기|순서를 나타내는 �
 
  여기서는 데이터프레임을 저장한 변수가 <b>'ds'</b> 이기 때문에 <b>ds.loc[인덱스]</b>라고 해줘야한다.
 
- ds.loc[0] : 0번째 인덱스 데이터를 가져오기 !
- 인덱스 넘으면 오류 남
+ <b> ds.loc[0] : 0번째 인덱스 데이터를 가져오기 ! </b>
+ <i> 인덱스 넘으면 오류 남 </i>
 
 
 ### loc로 여러개의 인덱스에 해당하는 행 데이터 추출하기
@@ -71,7 +73,7 @@ iloc | 행 번호를 기준으로 행 데이터 읽기|순서를 나타내는 �
  > <b><span style="color:rgb(159, 125, 255)"> 데이터프레임변수.loc[[ 인덱스1,인덱스2,인덱스3 ]]</span></b>
 
 
-ds.loc[[0,1,2]] : 0,1,2 인덱스의 데이터를 한꺼번에 가져올 때 ! 리스트에 인덱스를 담아 loc 속성에 전달하면 된다.
+<b> ds.loc[[0,1,2]] : 0,1,2 인덱스의 데이터를 한꺼번에 가져올 때 ! 리스트에 인덱스를 담아 loc 속성에 전달하면 된다. </b>
 
 ### iloc 속성으로 행 데이터 읽어오기
 
@@ -91,9 +93,9 @@ ds.loc[[0,1,2]] : 0,1,2 인덱스의 데이터를 한꺼번에 가져올 때 ! �
 
    > <b><span style="color:rgb(159, 125, 255)"> 데이터프레임변수.iloc[:, ['가져오고 싶은 열]]</span></b>
 
- ds.loc[:,['gender']]:   gender 이라는 열의 데이터를 가져오라는 명령어 입니다.
+ <b> ds.loc[:,['gender']]:   gender 이라는 열의 데이터를 가져오라는 명령어 입니다.
  ds.loc[:.[1,2,3]] : 1,2,3 번째 열의 데이터를 가져오라는 명령어
- ds:iloc[:.:3] : 모든 행에 대하여 3번 열 데이터 전까지 모두 가져오라는 명령어
+ ds:iloc[:.:3] : 모든 행에 대하여 3번 열 데이터 전까지 모두 가져오라는 명령어 </b>
 
 
 ###  loc,iloc  응용
@@ -139,7 +141,7 @@ ds.loc[[0,1,2]] : 0,1,2 인덱스의 데이터를 한꺼번에 가져올 때 ! �
     {% raw %} <img src="https://bcloved.github.io/assets/images/20200205clusteringMart/8.png" alt=""> {% endraw %}
     [출처 : https://wikidocs.net/4694]
 
->  from sklearn.cluster import KMeans
+>  <b><span style="color:rgb(159, 125, 255)">  from sklearn.cluster import KMeans </span></b>
 
 scikit-learn 의 cluster 서브패키지는 K-MEANS Clustering 를 위한 KMeans 클래스를 제공한다.
 이는 다음과 같은 인수를 받을 수 있다.
@@ -151,20 +153,20 @@ scikit-learn 의 cluster 서브패키지는 K-MEANS Clustering 를 위한 KMeans
 * random_state : 시드값
 
 
-> for i in range(1,11):
-    kmeans = KMeans(n_clusters=i,init='k-means++',random_state=42)
-    kmeans.fit(x)
-    wcss.append(kmeans.inertia_)
+> <b><span style="color:rgb(159, 125, 255)">  for i in range(1,11): <br>
+    kmeans = KMeans(n_clusters=i,init='k-means++',random_state=42) <br>
+    kmeans.fit(x) <Br>
+    wcss.append(kmeans.inertia_) </span></b>
 
 군집의 개수를 비교하기 위해 군집의 갯수가 1개 일때부터 11일 때까지 반복문을 돌려준다.
 초기화 방법으로는 k-means ++ 를 사용한다. (k-means++ 에 대해 알고 싶은 분들은 <https://bcloved.github.io/Project/>  게시물 참고해주세용)
 그리고 fit 함수는 학습을 진행하는 함수다. kmeans 알고리즘으로 x에 저장된 데이터를 학습을 진행하는 것이다.
 Inertia value는 군집화가된 후에, 각 중심점에서 군집의 데이타간의 거리를 합산한것이으로 군집의 응집도를 나타내는 값이다, 이 값이 작을 수록 응집도가 높게 군집화가 잘되었다고 평가할 수 있다. 이 inertia value는 KMeans 모델이 학습된 후에, model.inertia_ 값으로 뽑아 볼 수 있다. 한마디로 이 값들을 리스트를 담는 변수인 wcss 에 할당한다. (다시 한 번 말하지만 무엇이 가장 최적의 k 인지 알기 위해서 하는 것이다.)
 
-> plt.plot(range(1,11),wcss)
-plt.xlabel('Number of clusters')
-plt.ylabel('Within Cluster sum of squares')
-plt.show()
+> <b><span style="color:rgb(159, 125, 255)">  plt.plot(range(1,11),wcss) <br>
+plt.xlabel('Number of clusters') <br>
+plt.ylabel('Within Cluster sum of squares') <br>
+plt.show() </span></b>
 
 시각화 하기 위한 라이브러리 matplotlib.pyplot 의 plt 를 사용해
 inertia 값이 저장된 변수인 wcss 의 데이터들을 그래프로 나타낸다.
@@ -179,8 +181,8 @@ inertia 값이 저장된 변수인 wcss 의 데이터들을 그래프로 나타�
 
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200205clusteringMart/11.PNG" alt=""> {% endraw %}
 
->kmeans = KMeans(n_clusters=5,init='k-means++',random_state=42)
-y_kmeans = kmeans.fit_predict(x)
+><b><span style="color:rgb(159, 125, 255)">  kmeans = KMeans(n_clusters=5,init='k-means++',random_state=42) <br>
+y_kmeans = kmeans.fit_predict(x) </span></b>
 
 
 n_clusters (군집의 갯수) 를 5로 설정하고, 초기화 방법으로 k-means ++ 그리고 시드 값은 42로 설정한 뒤 k-means 를 학습한 후 결과를 y_kmeans 변수에 저장한다.
@@ -194,7 +196,7 @@ n_clusters (군집의 갯수) 를 5로 설정하고, 초기화 방법으로 k-me
 
 
 ### 작성형식
-> path = scatter(x,y,s=None,c=None)
+> <b><span style="color:rgb(159, 125, 255)">  path = scatter(x,y,s=None,c=None) </span></b>
 
 x,y: x축과 y축을 numpy 배열같이 이터레이블한 자료형을 입력받는다.
 s
@@ -212,7 +214,7 @@ c
 scatter() 의 함수의 전체 매개변수를 나타낸다.
 하지만 여기서는 위에서 설명한 x,y,s,c, 매개변수만  사용했다.
 
-> plt.scatter(x[y_kmeans==0,0],x[y_kmeans==0,1],s=100,c='red',label='Cluster 1')
+> <b><span style="color:rgb(159, 125, 255)"> plt.scatter(x[y_kmeans==0,0],x[y_kmeans==0,1],s=100,c='red',label='Cluster 1')</span></b>
 
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200205clusteringMart/14.PNG" alt=""> {% endraw %}
 y_kmeans 가 0으로 군집화 된 데이터 값들(x)을 마커 크기 100 빨간색 점으로 Cluster1 이라고 분류한다.
@@ -220,17 +222,18 @@ y_kmeans 가 0으로 군집화 된 데이터 값들(x)을 마커 크기 100 빨�
 다른 것 역시 같은 값 (1,2,3,4) 로 군집화 된 데이터 값들을 군집화 하여 각 다른 색으로 표현한다.
 또한 중심점을 나타내기 위해서
 
- > plt.scatter(kmeans.cluster_centers_[:, 0], kmeans.cluster_centers_[:, 1], s = 300, c = 'yellow', label = 'Centroids')
+ > <b><span style="color:rgb(159, 125, 255)"> plt.scatter(kmeans.cluster_centers_[:, 0], kmeans.cluster_centers_[:, 1], s = 300, c = 'yellow', label = 'Centroids')</span></b>
 
 노란색 점으로 군집들의  중심점을 표시해준다.
 <i>해당 군집들의 중심을 보기 위해서 kmeans.cluster_centers_ 를 사용하면 중심 값들이 나온다.</i>
+
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200205clusteringMart/15.PNG" alt=""> {% endraw %}
 
-> plt.legend()
+> <b><span style="color:rgb(159, 125, 255)"> plt.legend()</span></b>
 
 legend() 가 뭔지 정확히 알고싶은 사람들은 아래 글과 블로그 참고하십슈 ㅎㅎ
 
-    matplotlib로 그림을 열심히 그리고 나서, “이 색깔의 모양 저것은 무엇이고…” 하는 식으로 설명을 덧붙이면 매우 피곤해집니다. 이런 짓을 좀 덜 하려면 legend만 잘 넣어도 됩니다. plt.legend()만 넣어주면 되긴 합니다. 물론, 이렇게 하려면 figure에 새로운 그림을 넣어줄 때마다(scatter, or plot, …) label을 함께 넘겨줍니다. 잘 넣어주면, 나중에 plt.legend()를 해주면 알아서 잘 출력해줘요.
+    matplotlib로 그림을 열심히 그리고 나서, “이 색깔의 모양 저것은 무엇이고…” 하는 식으로 설명을 덧붙이면 매우 피곤해집니다. <br>이런 짓을 좀 덜 하려면 legend만 잘 넣어도 됩니다. plt.legend()만 넣어주면 되긴 합니다.<br> 물론, 이렇게 하려면 figure에 새로운 그림을 넣어줄 때마다(scatter, or plot, …) label을 함께 넘겨줍니다. <br>잘 넣어주면, 나중에 plt.legend()를 해주면 알아서 잘 출력해줘요.
     [출처< https://frhyme.github.io/python-lib/matplotlib_legend/> ]
 
 사실 이거 읽을 필요는 없구 그냥 아래 사진의
