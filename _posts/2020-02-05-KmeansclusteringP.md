@@ -12,10 +12,10 @@ date: "2020-02-05"
 사용한 언어는 python을 사용했고 사용한 IDE 는 Jupyter Notebook 을 사용했다.
 
 
-## 코드해석
+# 코드해석 && 결과
 ----
 
-### 1. import library
+## 1. import library
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200205clusteringMart/1.PNG" alt=""> {% endraw %}
 
 library import 해오는 부분으로 여기서 내가 생소했던 라이브러리만 설명하겠다.
@@ -23,7 +23,7 @@ library import 해오는 부분으로 여기서 내가 생소했던 라이브러
 matplotlib.pyplot : 이건 kmeans 클러스터링 예제를 풀었던 곳에서도 사용했던 라이브러리인데 료를 차트(chart)나 플롯(plot)으로 시각화(visulaization)하는 패키지이다.
 pandas: numpy행렬과 같이 쉼표를 사용한 (행 인덱스, 열 인덱스) 형식의 2차원 인덱싱을 지원하기 위해 다음과 같은 특별한 인덱서(indexer) 속성도 제공
 
-### 2. dataset read
+## 2. dataset read
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200205clusteringMart/1.PNG" alt=""> {% endraw %}
 
 ds(dataset) 라는 변수에 pandas 를 이용하여 csv 파일을 데이터프레임으로 변환한다. 이때 파일 경로를 적어주면 되는데,<b> 파일 경로는 \ 이거 아니다 / 이걸로 해줘야함.</b> 귀찮음이 커서 그냥 경로 복붙했는데 오류나서 진짜 당황했다. 복붙하면 경로 '\ ' 이걸로 나옴
@@ -51,10 +51,11 @@ iloc | 행 번호를 기준으로 행 데이터 읽기|순서를 나타내는 �
 
 여기서 사용한 함수는 iloc. 즉, 행 번호를 기준으로 데이터를 읽는 것이다.
 
-둘의 차이가 뭘까 ? 인덱스는 사용자가 설정하기 나름이다. 한마디로 문자열로 설정할 수 도 있고, 숫자도 중구난방으로 설정할 수 있는데 인덱스 번호가 작은 것부터 읽는 것을 의미한다.
-그에 비해 행 번호는 순서대로 1,2,3,4 읽는 것을 의미한다. 저기서 2번째 행이 삭제되더라도 행번호는 1,2,3 이 된다.
+둘의 차이가 뭘까 ? <b>인덱스는 사용자가 설정하기 나름이다. 한마디로 문자열로 설정할 수 도 있고, 숫자도 중구난방으로 설정할 수 있는데 인덱스 번호가 작은 것부터 읽는 것을 의미한다.</b>
 
-#### loc로 행 데이터 추출하기
+그에 비해 <b>행 번호는 순서대로 1,2,3,4 읽는 것을 의미한다. 저기서 2번째 행이 삭제되더라도 행번호는 1,2,3 이 된다.</b>
+
+### loc로 행 데이터 추출하기
 
  > <b><span style="color:rgb(159, 125, 255)"> 데이터프레임변수.loc[인덱스]</span></b>
 
@@ -64,7 +65,7 @@ iloc | 행 번호를 기준으로 행 데이터 읽기|순서를 나타내는 �
  인덱스 넘으면 오류 남
 
 
-#### loc로 여러개의 인덱스에 해당하는 행 데이터 추출하기
+### loc로 여러개의 인덱스에 해당하는 행 데이터 추출하기
 
 
  > <b><span style="color:rgb(159, 125, 255)"> 데이터프레임변수.loc[[ 인덱스1,인덱스2,인덱스3 ]]</span></b>
@@ -72,21 +73,21 @@ iloc | 행 번호를 기준으로 행 데이터 읽기|순서를 나타내는 �
 
 ds.loc[[0,1,2]] : 0,1,2 인덱스의 데이터를 한꺼번에 가져올 때 ! 리스트에 인덱스를 담아 loc 속성에 전달하면 된다.
 
-#### iloc 속성으로 행 데이터 읽어오기
+### iloc 속성으로 행 데이터 읽어오기
 
  > <b><span style="color:rgb(159, 125, 255)"> 데이터프레임변수.iloc[행번호]</span></b>
 
-####  iloc를 통해 마지막 행 데이터 가져오기
+###  iloc를 통해 마지막 행 데이터 가져오기
 
  > <b><span style="color:rgb(159, 125, 255)"> 데이터프레임변수.iloc[-1]</span></b>
 
- ####  iloc를 통해 여러개의 행 데이터 가져오기
+###  iloc를 통해 여러개의 행 데이터 가져오기
 
   > <b><span style="color:rgb(159, 125, 255)"> 데이터프레임변수.iloc[[ 1행 , 2행 , -1 ]]</span></b>
 
   1행과 2행 그리고 마지막행을 가져오는 방법
 
-  ####  iloc과 loc을 이용해 열 데이터 가져오기
+###  iloc과 loc을 이용해 열 데이터 가져오기
 
    > <b><span style="color:rgb(159, 125, 255)"> 데이터프레임변수.iloc[:, ['가져오고 싶은 열]]</span></b>
 
@@ -95,7 +96,7 @@ ds.loc[[0,1,2]] : 0,1,2 인덱스의 데이터를 한꺼번에 가져올 때 ! �
  ds:iloc[:.:3] : 모든 행에 대하여 3번 열 데이터 전까지 모두 가져오라는 명령어
 
 
-####  loc,iloc  응용
+###  loc,iloc  응용
 
 > ds.loc[[1,4],['gender']]
 
@@ -109,7 +110,7 @@ ds.loc[[0,1,2]] : 0,1,2 인덱스의 데이터를 한꺼번에 가져올 때 ! �
 1,4 번 행에서 0,1 인덱스 열의 데이터를 가져오기
 
 
-### 3. elbow method 를 사용하여 최적의 클러스터 수 찾기
+## 3. elbow method 를 사용하여 최적의 클러스터 수 찾기
 
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200205clusteringMart/5.PNG" alt=""> {% endraw %}
 
@@ -174,7 +175,7 @@ inertia 값이 저장된 변수인 wcss 의 데이터들을 그래프로 나타�
 그러므로 <B> n_clusters (군집의 갯수) 의 값은 5가 적합하다는 것을 알 수 있다. </B>
 
 
-### 4. KMeans 학습하기
+## 4. KMeans 학습하기
 
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200205clusteringMart/11.PNG" alt=""> {% endraw %}
 
@@ -185,14 +186,14 @@ y_kmeans = kmeans.fit_predict(x)
 n_clusters (군집의 갯수) 를 5로 설정하고, 초기화 방법으로 k-means ++ 그리고 시드 값은 42로 설정한 뒤 k-means 를 학습한 후 결과를 y_kmeans 변수에 저장한다.
 
 
-### 5. 시각화
+## 5. 시각화
 
 {% raw %} <img src="https://bcloved.github.io/assets/images/20200205clusteringMart/12.PNG" alt=""> {% endraw %}
 
 산포그래프(scatter plot)는 마커사이즈와 컬러를 이용하여 만든 플롯이다. 더 알고 싶은 사람들은 아래 내용을 참고.
 
 
-#### 작성형식
+### 작성형식
 > path = scatter(x,y,s=None,c=None)
 
 x,y: x축과 y축을 numpy 배열같이 이터레이블한 자료형을 입력받는다.
