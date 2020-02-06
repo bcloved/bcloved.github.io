@@ -25,7 +25,7 @@ library import 해오는 부분으로 여기서 내가 생소했던 라이브러
 - pandas: numpy행렬과 같이 쉼표를 사용한 (행 인덱스, 열 인덱스) 형식의 2차원 인덱싱을 지원하기 위해 다음과 같은 특별한 인덱서(indexer) 속성도 제공
 
 ## 2. dataset read
-{% raw %} <img src="https://bcloved.github.io/assets/images/20200205clusteringMart/1.PNG" alt=""> {% endraw %}
+{% raw %} <img src="https://bcloved.github.io/assets/images/20200205clusteringMart/2.PNG" alt=""> {% endraw %}
 
 ds(dataset) 라는 변수에 pandas 를 이용하여 csv 파일을 데이터프레임으로 변환한다. 이때 파일 경로를 적어주면 되는데,<b> 파일 경로는 \ 이거 아니다 / 이걸로 해줘야함.</b> 귀찮음이 커서 그냥 경로 복붙했는데 오류나서 진짜 당황했다. 복붙하면 경로 '\ ' 이걸로 나옴
 
