@@ -32,3 +32,9 @@ hadoop 은 분산처리시에 서버들 간에 ssh 통신을 자동적으로 수
 
 
 사실 여기 부분은 hadoop 다운로드 하는 부분과 동일함
+
+
+참고
+----
+
+<http://jeonghwan-kim.github.io/%EC%9B%90%EA%B2%A9%EB%A1%9C%EA%B7%B8%EC%9D%B8ssh-%EC%A0%91%EC%86%8D/>
