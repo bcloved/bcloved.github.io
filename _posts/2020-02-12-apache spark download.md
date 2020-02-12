@@ -9,12 +9,12 @@ hadoop 다운로드는 .. <https://bcloved.github.io/hadoop%EB%8B%A4%EC%9A%B4%EB
 
 
 
-spark?
+## spark?
 ---
 클러스터에서 데이터 읽기 -> 애널리틱스 운영 수행 및 결과값 클러스터 입력 동작과 같은 전 과정 동시 진행
 스파크는 스트리밍 데이터 처리와 머신러닝 알고리즘 처럼 애플리케이션과의 복합적 운영이 필요할 때 적합
 
-python3 download
+## python3 download
 ----
 > sudo apt-get update
 >sudo apt-get upgrade
@@ -26,7 +26,7 @@ pip 다운로드 받는거 오래걸림 . . . . . 진짜 오래걸림
 
 ---
 
-matplotlib download
+## matplotlib download
 ----
 
 >sudo pip3 install --upgrade pip
@@ -42,7 +42,7 @@ pip를 업그레이드 해준다.
 
 ---
 
-locale 관련 설정
+## locale 관련 설정
 
 > sudo gedit ~/.bashrc
 
@@ -54,7 +54,7 @@ export LANG = en_US.UTF-8
 을 맨 마지막에 설정한 뒤 저장 !!
 
 ----
-##JAVA 설치
+## JAVA 설치
 자바 설치는 HADOOP 에서 이미 했지만 한번 더 적겠습니다
 
 >sudo apt-get install openjdk-8-jdk
@@ -78,7 +78,7 @@ export PATH=$JAVA_HOME/bin:$PATH
 이 문장 실행하여 환경설정 적용
 
 ----
-##SPARK 다운로드
+## SPARK 다운로드
 
 <http://spark.apache.org/downloads.html> 에 접속
 
@@ -138,7 +138,7 @@ export PYSPARK=/usr/bin/python3
 ---
 
 ----
-##jupyter NoteBook download
+## jupyter NoteBook download
 
 주피터 노트북은 바로바로 결과를 확인할 수 있어서 너무  선호하고 있습니다.
 그런 의미로 가상머신에서도 다운로드를 한번 받아보겠습니다.
