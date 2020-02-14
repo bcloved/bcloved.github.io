@@ -80,8 +80,20 @@ ssh: connect to host 192.168.0.200 port 22: Connection refused
 
 
 필자는 3번,5번이 떳고 확인 결과 slave VM 에 ssh 가 다운이 안받아져 있는 걸 확인함.
+하지만 그러고 나서 발생한 Permission Deny 증상
+<https://m.blog.naver.com/PostView.nhn?blogId=parkjy76&logNo=30035841099&proxyReferer=https%3A%2F%2Fwww.google.com%2F>
 
 ---
+
+ssh-keygen -t rsa
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/authorized_keys
+ssh-copy-id -i ~/.ssh/id_rsa.pub [user]@[host]
+
+
+
+<https://blog.asamaru.net/2016/01/26/ssh-login-without-password/>
+
 
 
 참고
