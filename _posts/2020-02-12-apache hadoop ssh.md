@@ -94,7 +94,11 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub [user]@[host]
 
 <https://blog.asamaru.net/2016/01/26/ssh-login-without-password/>
 
+spark on yarn
 
+spark in standalone
+
+spark history server
 
 참고
 ----
