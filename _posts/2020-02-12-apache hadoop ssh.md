@@ -1,4 +1,4 @@
-﻿---
+---
 title : "[ubuntu]hadoop ssh 설정"
 author : "금주"
 #categories : - Project
@@ -100,6 +100,8 @@ spark in standalone
 
 spark history server
 
+<https://daeson.tistory.com/279?category=679387>
+https://bitstudio.tistory.com/entry/%EC%9E%90%EB%8F%99-SSH-%EC%A0%91%EC%86%8D%EC%9D%84-%EC%9C%84%ED%95%9C-SSH-setup
 참고
 ----
 
@@ -110,3 +112,4 @@ spark history server
 sudo iptables -L
 
 sudo iptables -A INPUT -p tcp --dport ssh -j ACCEPT
+<https://www.digitalocean.com/community/questions/ssh-won-t-login-permission-denied-publickey-password>
