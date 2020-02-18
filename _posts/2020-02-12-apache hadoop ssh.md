@@ -1,48 +1,107 @@
 ---
-title : "[ubuntu]hadoop ssh 설정"
+title : "[ubuntu/ssh]ssh 비밀번호 입력 없이 가상머신끼리 통신하기"
 author : "금주"
 #categories : - Project
 date: "2020-02-13"
 ---
-## ssh 설정
 
-hadoop 은 분산처리시에 서버들 간에 ssh 통신을 자동적으로 수행하기 때문에 암호 없이 접속이 가능하도록 master 서버에서 공개키를 생성한 후 각 서버들에게 배포해 줘야 한다.
+하둡에 이어 약 3일 동안 ssh 때문에 삽질만 했다 ㅎㅎ
+13일에 올렸지만 오늘이 벌써 18일 ^^ ..
+
+일단 나의 삽질의 기록과 Permission deny 에 대한 해결방법을 말하려고 한다.
+
+
+---
+
+먼저 hadoop 은 분산처리시에 서버들 간에 ssh 통신을 자동적으로 수행하기 때문에 암호 없이 접속이 가능하도록 master 서버에서 공개키를 생성한 후 각 서버들에게 배포해 줘야 한다. 그렇기 때문에 비밀번호가 없이 즉각적으로 소통이 가능하도록 설정을 해줘야 한다.
+
+
+---
+## 포트포워딩(portforwarding)
+
+master ip
+
+{% raw %} <img src="https://bcloved.github.io/assets/images/hadoop2/5.PNG" alt=""> {% endraw %}
+
+slave ip
+
+{% raw %} <img src="https://bcloved.github.io/assets/images/hadoop2/4.PNG" alt=""> {% endraw %}
+
+
+각 ip 는 192.168.0.5 와 192.168.0.6 로 설저 되어져 있음
+그렇기 때문에 아래 사진에서 Master SSH 게스트 ip 와 Slave SSH 게스트 ip 를 설정해준다.
+
+ssh 의 port 번호는 22번이기 때문에 22로 설정
+
+
+{% raw %} <img src="https://bcloved.github.io/assets/images/hadoop2/3.PNG" alt=""> {% endraw %}
+
+가상 머신에서 포트포워딩 규칙 설정 해준다.
+
+포트포워딩 규칙 설정하는 방법 <https://bcloved.github.io/portforwarding/>
+
+
+
+## slave 머신 IP 이름 지정
+---
+
+master 머신에  slave 머신의 IP에 대한 이름을  지정해 줘야 한다.
+
+>  sudo gedit /etc/hosts
+
+{% raw %} <img src="https://bcloved.github.io/assets/images/hadoop2/20.PNG" alt=""> {% endraw %}
+
+ipv6 은 사용안할거기 때문에 다 주석처리 했음
+
+
+---
+
+## ssh-server/client 설치
+---
+master 머신과 slave 머신 둘 다 ssh 클라이언트와 서버 설치
+
+> sudo apt-get install openssh-client openssh-server
+
+
+
+
+## ssh 설정
+---
 
 * ssh 설정 변경
+
+<b><span style="color:rgb(159, 125, 255)">(master)</span></b>
 
 > sudo gedit /etc/ssh/sshd_config
 
 
-{% raw %} <img src="https://bcloved.github.io/assets/images/hadoop2/1.PNG" alt=""> {% endraw %}
-
 이 파일들에서
-
 
 {% raw %} <img src="https://bcloved.github.io/assets/images/hadoop2/2.PNG" alt=""> {% endraw %}
 
 
-형광펜 칠한 부분의 주석을 제거한다.
-
-* master 서버에서 해주기
-
-> mkdir ~/.ssh
-> chmod 700 ~/.ssh
-> ssh-keygen -t rsa -P ""
->  cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+형광펜 칠한 부분의 주석(#)을 제거한다.
 
 
-사실 여기 부분은 hadoop 다운로드 하는 부분과 동일함
+<b><span style="color:rgb(159, 125, 255)">(slave)</span></b>
 
-{% raw %} <img src="https://bcloved.github.io/assets/images/hadoop2/3.PNG" alt=""> {% endraw %}
+> sudo gedit /etc/ssh/sshd_config
 
-{% raw %} <img src="https://bcloved.github.io/assets/images/hadoop2/4.PNG" alt=""> {% endraw %}
+똑같이 sshd_config 파일을 연 뒤
+PermitRootLogin = 어쩌고어쩌고 되어져 있었는데 '=' 이후 부분을  지운 뒤
 
-{% raw %} <img src="https://bcloved.github.io/assets/images/hadoop2/5.PNG" alt=""> {% endraw %}
+> PermitRootLogin = yes
+
+로 변경해준다.
+
+---
+
+* <b><span style="color:rgb(159, 125, 255)"> master 서버에서 해주기</span></b>
 
 
-포트포워딩 테이블 설정 각 master 와 slave ip를 설정해주었음.
-
+iptables 에 slave ip 추가
 {% raw %} <img src="https://bcloved.github.io/assets/images/hadoop2/6.PNG" alt=""> {% endraw %}
+
 
 > sudo iptables -I INPUT -p TCP -s YOUR_CLIENT_IP -j ACCEPT
 
@@ -51,9 +110,121 @@ hadoop 은 분산처리시에 서버들 간에 ssh 통신을 자동적으로 수
 
 {% raw %} <img src="https://bcloved.github.io/assets/images/hadoop2/7.PNG" alt=""> {% endraw %}
 
+이렇게 확인할 수 있음
+
+
+> mkdir ~/.ssh
+
+.ssh 폴더 만들어줌
 
 
 ---
+
+# 공개키 생성
+
+ slave 와 master VM 둘 다 각자 공개키를 생성해 주어 한다.
+
+> ssh-keygen -t rsa -P ""
+
+{% raw %} <img src="https://bcloved.github.io/assets/images/hadoop2/9.PNG" alt=""> {% endraw %}
+
+> cd ~/.ssh
+> ls
+
+{% raw %} <img src="https://bcloved.github.io/assets/images/hadoop2/10.PNG" alt=""> {% endraw %}
+
+id_rsa와 id_rsa.pub 파일이 생성되어져 있을 것이다. ( authorized_keys  파일은 없을 수도 있음)
+
+id_rsa.pub 가 바로 공개키다.
+
+
+{% raw %} <img src="https://bcloved.github.io/assets/images/hadoop2/17.PNG" alt=""> {% endraw %}
+
+이와 같이 출력되면 성공한 것.
+
+drwx------  2 egoing egoing 4096 Feb 18 18:54 .
+drwxr-xr-x 16 egoing egoing 4096 Mar  1 06:02 ..
+-rw-rw-r--  1 egoing egoing  790 Feb 19 06:04 authorized_keys
+-rw-------  1 egoing egoing 1675 Feb 18 18:51 id_rsa
+-rw-r--r--  1 egoing egoing  395 Feb 18 18:51 id_rsa.pub
+-rw-r--r--  1 egoing egoing 2216 Feb 19 18:34 known_hosts
+
+-|-|-
+id_rsa|private key, 절대로 타인에게 노출되면 안된다.
+id_rsa.pub|public key, 접속하려는 리모트 머신의 authorized_keys에 입력하는 키
+authorized_keys| 리모트 머신의 .ssh 디렉토리 아래에 위치하면서 id_rsa.pub 키의 값을 저장한다.
+
+
+.ssh 디렉토리는 매우 중요한 정보가 담긴 디렉토리다. 따라서 퍼미션 설정을 꼭 해줘야 하는데 아래와 같은 설정을 권장한다.
+아래의 명령어를 순차대로 실행한다.
+
+각 파일들의 퍼미션이다.
+{% raw %} <img src="https://bcloved.github.io/assets/images/hadoop2/19.PNG" alt=""> {% endraw %}
+
+참고로 .ssh 폴더의 퍼미션은 700으로 설정하는 것이 좋다 (자동으로 설정되긴 함)
+
+{% raw %} <img src="https://bcloved.github.io/assets/images/hadoop2/18.PNG" alt=""> {% endraw %}
+
+>chmod 700 ~/.ssh
+chmod 600 ~/.ssh/id_rsa
+chmod 644 ~/.ssh/id_rsa.pub  
+chmod 644 ~/.ssh/authorized_keys
+chmod 644 ~/.ssh/known_hosts
+
+
+---
+# 공개키 배포
+
+모든 머신의 RSA 키가 생성되면 Master Slave 노드의 모든 Key를 공유해야 한다.
+그렇기 위해서는 공개키 집합을 만들어 공유해야 하는데 그렇게 하기 위해서 <b><span style="color:rgb(159, 125, 255)">authorized_keys</span></b> 라는 파일을 생성해야 한다.
+
+
+먼저 <b><span style="color:rgb(159, 125, 255)">master</span></b> 에서 id_rsa.pub 의 내용을 authorized_keys 라는 파일에 작성을 한다.
+
+> cat id_rsa.pub >> authorized_keys
+
+{% raw %} <img src="https://bcloved.github.io/assets/images/hadoop2/11.PNG" alt=""> {% endraw %}
+
+이렇게 하면
+
+{% raw %} <img src="https://bcloved.github.io/assets/images/hadoop2/12.PNG" alt=""> {% endraw %}
+
+이렇게 복사된 걸 확인할 수 있다.
+
+
+
+이제 slave1의 id_rsa.pub 을 다음과 같은 명령어 실행으로 master 노드의 authorized_keys 에 작성한다.
+
+> ssh <b><span style="color:rgb(159, 125, 255)">slave1@slave1-VirtualBox</span></b> cat<b><span style="color:rgb(159, 125, 255)"> /home/slave1/.ssh/id_rsa.pub</span></b> >> ~/.ssh/authorized_keys
+
+여기서 주의할점은 가상머신의 host 이름과 user 이름을 완벽하게 적어줘야 하고, 또한 slave 가상머신에서 id_rsa.pub 가 저장된 폴더의 전체 경로를 정확하게 적어줘야 함. ~이상 개고생한  사람의 말 ~
+
+{% raw %} <img src="https://bcloved.github.io/assets/images/hadoop2/13.PNG" alt=""> {% endraw %}
+
+{% raw %} <img src="https://bcloved.github.io/assets/images/hadoop2/14.PNG" alt=""> {% endraw %}
+
+그러면 authorized_keys 파일 밑에 slave1 의 pub 키가 복사된 걸 볼 수 있음
+
+<<< !! 본격 배포하기 중요 !! >>>
+
+그 후에, authorized_keys 파일에 master 과 slave 의  모든 공개키가 작성되고 나면 scp 명령어를 이용해 모든 slave 들에게 이 파일을 배포해줘야 한다.
+
+> scp authorized_keys slave1@slave1-VritualBox:~/.ssh/authorized_keys
+
+{% raw %} <img src="https://bcloved.github.io/assets/images/hadoop2/15.PNG" alt=""> {% endraw %}
+
+
+이처럼 뜨면 배포가 끝난 걸  확인할  수 있음
+
+
+{% raw %} <img src="https://bcloved.github.io/assets/images/hadoop2/16.PNG" alt=""> {% endraw %}
+
+slave1에 접속 성공 ~!!
+
+---
+
+참고 ! !
+
 ## ssh 접속 장애시 원인별 로그
 
 ※ 정리
@@ -81,18 +252,21 @@ ssh: connect to host 192.168.0.200 port 22: Connection refused
 
 필자는 3번,5번이 떳고 확인 결과 slave VM 에 ssh 가 다운이 안받아져 있는 걸 확인함.
 하지만 그러고 나서 발생한 Permission Deny 증상
-<https://m.blog.naver.com/PostView.nhn?blogId=parkjy76&logNo=30035841099&proxyReferer=https%3A%2F%2Fwww.google.com%2F>
+
+이유는 없는 가상머신 호스트로 되어져 있어서 였음
+현재 있는 가상 머신은 <b>master@master-VirtualBox 와 slave1@slave1-VirtualBox</b> 두 가지가 있었는데
+내가 ssh slave1-VirtualBox 하다 보니 master@slave1-VirtualBox 로 연결이 되어 설정되지 않았기 때문에 Permission deny 가 발생했었음
+
+해결법은
+
+>> ssh slave1@slave1-VritualBox
+
+라고 해주니 해결 되었음
+
 
 ---
 
-ssh-keygen -t rsa
-chmod 700 ~/.ssh
-chmod 600 ~/.ssh/authorized_keys
-ssh-copy-id -i ~/.ssh/id_rsa.pub [user]@[host]
 
-
-
-<https://blog.asamaru.net/2016/01/26/ssh-login-without-password/>
 
 spark on yarn
 
@@ -100,16 +274,9 @@ spark in standalone
 
 spark history server
 
-<https://daeson.tistory.com/279?category=679387>
-https://bitstudio.tistory.com/entry/%EC%9E%90%EB%8F%99-SSH-%EC%A0%91%EC%86%8D%EC%9D%84-%EC%9C%84%ED%95%9C-SSH-setup
+
 참고
 ----
 
-<http://jeonghwan-kim.github.io/%EC%9B%90%EA%B2%A9%EB%A1%9C%EA%B7%B8%EC%9D%B8ssh-%EC%A0%91%EC%86%8D/>
-<https://sancs.tistory.com/110>
-<https://wookmania.tistory.com/79>
-<https://shaeod.tistory.com/582>
-sudo iptables -L
-
-sudo iptables -A INPUT -p tcp --dport ssh -j ACCEPT
-<https://www.digitalocean.com/community/questions/ssh-won-t-login-permission-denied-publickey-password>
+<https://bitstudio.tistory.com/entry/%EC%9E%90%EB%8F%99-SSH-%EC%A0%91%EC%86%8D%EC%9D%84-%EC%9C%84%ED%95%9C-SSH-setup>
+<https://opentutorials.org/module/432/3742>
