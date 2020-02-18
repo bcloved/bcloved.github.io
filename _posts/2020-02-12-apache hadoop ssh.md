@@ -221,6 +221,10 @@ chmod 644 ~/.ssh/known_hosts
 
 slave1에 접속 성공 ~!!
 
+다음 쓸 게시물은 하둡에서 본격적으로 데이터를 분산처리 하도록 할 것이다.
+
+
+
 ---
 
 참고 ! !
@@ -280,3 +284,4 @@ spark history server
 
 <https://bitstudio.tistory.com/entry/%EC%9E%90%EB%8F%99-SSH-%EC%A0%91%EC%86%8D%EC%9D%84-%EC%9C%84%ED%95%9C-SSH-setup>
 <https://opentutorials.org/module/432/3742>
+<https://daeson.tistory.com/277?category=679387>
