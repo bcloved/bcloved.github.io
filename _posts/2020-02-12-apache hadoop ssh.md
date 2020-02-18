@@ -142,12 +142,6 @@ id_rsa.pub 가 바로 공개키다.
 
 이와 같이 출력되면 성공한 것.
 
-drwx------  2 egoing egoing 4096 Feb 18 18:54 .
-drwxr-xr-x 16 egoing egoing 4096 Mar  1 06:02 ..
--rw-rw-r--  1 egoing egoing  790 Feb 19 06:04 authorized_keys
--rw-------  1 egoing egoing 1675 Feb 18 18:51 id_rsa
--rw-r--r--  1 egoing egoing  395 Feb 18 18:51 id_rsa.pub
--rw-r--r--  1 egoing egoing 2216 Feb 19 18:34 known_hosts
 
 -|-|-
 id_rsa|private key, 절대로 타인에게 노출되면 안된다.
