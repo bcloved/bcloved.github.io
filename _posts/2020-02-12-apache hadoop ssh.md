@@ -159,10 +159,11 @@ authorized_keys| 리모트 머신의 .ssh 디렉토리 아래에 위치하면서
 
 {% raw %} <img src="https://bcloved.github.io/assets/images/hadoop2/18.PNG" alt=""> {% endraw %}
 
->chmod 700 ~/.ssh
-chmod 600 ~/.ssh/id_rsa
-chmod 644 ~/.ssh/id_rsa.pub  
-chmod 644 ~/.ssh/authorized_keys
+
+>chmod 700 ~/.ssh<br>
+chmod 600 ~/.ssh/id_rsa<br>
+chmod 644 ~/.ssh/id_rsa.pub <br>
+chmod 644 ~/.ssh/authorized_keys <br>
 chmod 644 ~/.ssh/known_hosts
 
 
@@ -181,7 +182,7 @@ chmod 644 ~/.ssh/known_hosts
 
 이렇게 하면
 
-{% raw %} <img src="https://bcloved.github.io/assets/images/hadoop2/12.PNG" alt=""> {% endraw %}
+{% raw %} <img src="https://bcloved.github.io/assets/images/hadoop2/12.png" alt=""> {% endraw %}
 
 이렇게 복사된 걸 확인할 수 있다.
 
