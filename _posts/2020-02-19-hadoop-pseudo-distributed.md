@@ -20,3 +20,10 @@ root@localhost 의 비밀번호 설정
 
 >sudo -s
 >passwd
+
+{% raw %} <img src="https://bcloved.github.io/assets/images/pseudo-distributed/1.PNG" alt=""> {% endraw %}
+{% raw %} <img src="https://bcloved.github.io/assets/images/pseudo-distributed/2.PNG" alt=""> {% endraw %}
+{% raw %} <img src="https://bcloved.github.io/assets/images/pseudo-distributed/3.PNG" alt=""> {% endraw %}
+{% raw %} <img src="https://bcloved.github.io/assets/images/pseudo-distributed/4.PNG" alt=""> {% endraw %}
+{% raw %} <img src="https://bcloved.github.io/assets/images/pseudo-distributed/5.PNG" alt=""> {% endraw %}
+{% raw %} <img src="https://bcloved.github.io/assets/images/pseudo-distributed/6.PNG" alt=""> {% endraw %}
