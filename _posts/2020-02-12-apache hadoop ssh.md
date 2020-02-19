@@ -200,7 +200,7 @@ chmod 644 ~/.ssh/known_hosts
 
 그러면 authorized_keys 파일 밑에 slave1 의 pub 키가 복사된 걸 볼 수 있음
 
-<<< !! 본격 배포하기 중요 !! >>>
+<b><<< !! 본격 배포하기 중요 !! >>></b>
 
 그 후에, authorized_keys 파일에 master 과 slave 의  모든 공개키가 작성되고 나면 scp 명령어를 이용해 모든 slave 들에게 이 파일을 배포해줘야 한다.
 
