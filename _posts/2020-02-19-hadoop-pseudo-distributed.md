@@ -8,6 +8,8 @@ date: "2020-02-19"
 > sudo install apt-get  yum
 
 https://parksuseong.blogspot.com/2019/04/312-2-standalone-pseudo-distributed.html
+
+
 https://jinjeecode.tistory.com/18
 https://net0310.tistory.com/entry/Hadoop-%EC%84%A4%EC%B9%98
 https://jy86.tistory.com/entry/%E3%85%87
@@ -24,7 +26,11 @@ root@localhost 의 비밀번호 설정
 
 
 {% raw %} <img src="https://bcloved.github.io/assets/images/pesudo-distributed/1.PNG" alt=""> {% endraw %}
+'configuration' 태그 안에 내용 추가
 {% raw %} <img src="https://bcloved.github.io/assets/images/pesudo-distributed/2.PNG" alt=""> {% endraw %}
+
+'configuration' 태그 안에 내용 추가 - 맨 위 property 태그 내용만 추가하면 된다.
+사실 여기는 완전분산모드를 구현하기 위한  사람들이 추가하면 된다.
 
 > ~/hadoop/hadoop-2.10.0/bin/hadoop namenode -format
 {% raw %} <img src="https://bcloved.github.io/assets/images/pesudo-distributed/3.PNG" alt=""> {% endraw %}
