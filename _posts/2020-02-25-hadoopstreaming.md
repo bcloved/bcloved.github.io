@@ -41,6 +41,8 @@ date: "2020-02-25"
 
 <출처 :http://blog.naver.com/PostView.nhn?blogId=imf4&logNo=220736720404&parentCategoryNo=&categoryNo=24&viewDate=&isShowPopularPosts=false&from=postView >
 
+뭐 하나 매끄럽게 흘러가는ㄱ ㅔ없는 우당탕탕 하둡 일기 ㅠㅠ
+
 ----
 참고
 https://jyoondev.tistory.com/58
