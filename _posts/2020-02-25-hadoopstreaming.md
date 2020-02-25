@@ -17,8 +17,29 @@ date: "2020-02-25"
 하둡스트리밍을 실행하기 위해서는 hadoop-streaming-1.2.1.jar 파일이 필요
 이 jar파일을 사용해 스크립트를 실행시키는 구조
 
+> ./bin/hadoop jar contrib/streaming/hadoop-streaming-1.2.1.jar [generic옵션] [스트리밍옵션]
 
+* generic옵션
 
+옵션 | 필수여부 | 내용
+|:---:|:---:|:---:|
+-conf|옵션|맵리듀스 잡에서 사용할 환경설정 파일<br/> ex) -conf myprperty.conf
+-D|옵션|맵리듀스 잡에서 사용할 속성값. "속성=값" 형식으로 설정<br/> ex) -D mapred.local.dir=/home/hadoop/mapred/local
+-fs | 옵션 |	스트리밍 명령어에서 접근할 네임노드<br/> ex) -fs mynamenode:9000
+-jt|옵션|스트리밍 명령어에서 접근할 잡트래커<br/> ex) j-jt myjobtracker:9001
+-files|옵션|분산 캐시에 등록해서 사용할 텍스트 파일<br/> ex) -files "mapper.sh, reducer.sh"
+-libjars|옵션|분산 캐시에 등록해서 사용할 JAR 파일<br/> ex) -libjars "/home/hadoop/mylib/myjob.jar"
+-archives|옵션|분산 캐시에 등록해서 사용할 아카이브 파일<br/> ex) -archives "/home/hadoop/mylib/myjob.jar , /home/hadoop/mylib/myjob2.tar"
+
+* 하둡 스트리밍 옵션
+
+>./bin/hadoop jar contrib/streaming/hadoop-streaming-1.2.1.jar \ <br/>
+<t>-input 입력 데이터 경로 \ <br/>
+<t>-output 출력 데이터 경로 \  <br/>
+<t>-mapper 매퍼로 사용할 소스경로 \  <br/>
+<t>-reducer 리듀서로 사용할 소스 경로 <br/>
+
+<출처 :http://blog.naver.com/PostView.nhn?blogId=imf4&logNo=220736720404&parentCategoryNo=&categoryNo=24&viewDate=&isShowPopularPosts=false&from=postView >
 
 ----
 참고
