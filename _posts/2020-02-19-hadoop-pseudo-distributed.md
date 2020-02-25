@@ -45,3 +45,6 @@ root@localhost 의 비밀번호 설정
 가상분산모드 설치 완료
 
 <https://1004jonghee.tistory.com/entry/%ED%95%98%EB%91%A1-%EA%B0%80%EC%83%81-%EB%B6%84%EC%82%B0-%EB%AA%A8%EB%93%9C-%EC%84%A4%EC%B9%98Hadoop-121-version>
+
+
+<https://daedooo.tistory.com/10>
