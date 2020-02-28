@@ -70,3 +70,4 @@ keywords : 실시간 스마트 디바이스 / spark 스트리밍
 ---
 참고
 스파크 스트리밍 <https://jyoondev.tistory.com/m/97>
+스파크 스트리밍 강의 <https://www.youtube.com/watch?v=cXfjBb0Vj7c>
